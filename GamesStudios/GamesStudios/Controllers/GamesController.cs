@@ -12,9 +12,31 @@ namespace GamesStudios.Controllers
         // GET: Games
         public ActionResult Random()
         {
-            var game = new Game() {Name = "The Wish"};
+            var game = new Game() { Name = "The Wish" };
 
             return View(game);
+        }
+
+        public ActionResult Index(int? pageIndex, string sortBy)
+        {
+            //  if (pageIndex.HasValue) pageIndex = 1;
+            //  if (String.IsNullOrWhiteSpace(sortBy)) sortBy = "Name";
+
+            var games = GetGames();
+
+            return View(games);
+
+        }
+
+   
+
+        private IEnumerable<Game> GetGames()
+        {
+            return new List<Game>
+            {
+                new Game { Id = 1, Name = "Shrek" },
+                new Game { Id = 2, Name = "Wall-e" }
+            };
         }
     }
 }
