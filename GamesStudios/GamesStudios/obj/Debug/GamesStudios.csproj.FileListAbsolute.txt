@@ -80,3 +80,6 @@ C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudi
 C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.csprojResolveAssemblyReference.cache
 C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.dll
 C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.pdb
+C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.Migrations.initialModel.resources
+C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.csproj.GenerateResource.Cache
+C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.Migrations.addGameTable.resources
