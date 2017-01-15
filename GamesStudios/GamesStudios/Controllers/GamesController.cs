@@ -26,6 +26,7 @@ namespace Vidly.Controllers
             var genres = _context.Genres.ToList();
             var viewModel = new GameFormViewModel
             {
+                Game = new Game(),
                 Genres = genres
             };
 
@@ -41,7 +42,8 @@ namespace Vidly.Controllers
             {
                 var GameInDb = _context.Games.Single(c => c.Id == Game.Id);
                 GameInDb.Name = Game.Name;
-        
+                GameInDb.GenreId = Game.GenreId;
+
             }
 
             _context.SaveChanges();
@@ -76,7 +78,7 @@ namespace Vidly.Controllers
             var viewModel = new GameFormViewModel
             {
                 Game = Game,
-                Genre = _context.Genres.ToList()
+                Genres = _context.Genres.ToList()
             };
 
             return View("GameForm", viewModel);
