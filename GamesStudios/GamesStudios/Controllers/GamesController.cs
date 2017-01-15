@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 using System.Web.Mvc;
 using GamesStudios.Models;
 
@@ -9,6 +10,18 @@ namespace GamesStudios.Controllers
 {
     public class GamesController : Controller
     {
+
+        private ApplicationDbContext _context;
+
+        public GamesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Games
         public ActionResult Random()
         {
@@ -28,7 +41,18 @@ namespace GamesStudios.Controllers
 
         }
 
-   
+        public ActionResult Details(int id)
+        {
+            var game = _context.Games.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
+
+            if (game == null)
+                return HttpNotFound();
+
+            return View(game);
+
+        }
+
+
 
         private IEnumerable<Game> GetGames()
         {
