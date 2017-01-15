@@ -1,66 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Web;
-using System.Data.Entity;
 using System.Web.Mvc;
 using GamesStudios.Models;
+using GamesStudios.ViewModels;
 
-namespace GamesStudios.Controllers
+
+namespace Vidly.Controllers
 {
     public class GamesController : Controller
     {
-
         private ApplicationDbContext _context;
 
         public GamesController()
         {
             _context = new ApplicationDbContext();
         }
+
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
         }
 
-        // GET: Games
-        public ActionResult Random()
+        public ActionResult New()
         {
-            var game = new Game() { Name = "The Wish" };
+            var genres = _context.Genres.ToList();
+            var viewModel = new GameFormViewModel
+            {
+                Genres = genres
+            };
 
-            return View(game);
+            return View("GameForm", viewModel);
         }
 
-        public ActionResult Index(int? pageIndex, string sortBy)
+        [HttpPost]
+        public ActionResult Save(Game Game)
         {
-            //  if (pageIndex.HasValue) pageIndex = 1;
-            //  if (String.IsNullOrWhiteSpace(sortBy)) sortBy = "Name";
+            if (Game.Id == 0)
+                _context.Games.Add(Game);
+            else
+            {
+                var GameInDb = _context.Games.Single(c => c.Id == Game.Id);
+                GameInDb.Name = Game.Name;
+        
+            }
 
-            var games = GetGames();
+            _context.SaveChanges();
 
-            return View(games);
+            return RedirectToAction("Index", "Games");
+        }
 
+        public ViewResult Index()
+        {
+            var Games = _context.Games.Include(c => c.Genre).ToList();
+
+            return View(Games);
         }
 
         public ActionResult Details(int id)
         {
-            var game = _context.Games.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
+            var Game = _context.Games.Include(c => c.Genre).SingleOrDefault(c => c.Id == id);
 
-            if (game == null)
+            if (Game == null)
                 return HttpNotFound();
 
-            return View(game);
-
+            return View(Game);
         }
 
-
-
-        private IEnumerable<Game> GetGames()
+        public ActionResult Edit(int id)
         {
-            return new List<Game>
+            var Game = _context.Games.SingleOrDefault(c => c.Id == id);
+
+            if (Game == null)
+                return HttpNotFound();
+
+            var viewModel = new GameFormViewModel
             {
-                new Game { Id = 1, Name = "Shrek" },
-                new Game { Id = 2, Name = "Wall-e" }
+                Game = Game,
+                Genre = _context.Genres.ToList()
             };
+
+            return View("GameForm", viewModel);
         }
     }
 }
