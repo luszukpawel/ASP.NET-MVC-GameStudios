@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace GamesStudios.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()

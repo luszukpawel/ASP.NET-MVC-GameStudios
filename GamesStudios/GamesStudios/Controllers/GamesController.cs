@@ -7,6 +7,7 @@ using GamesStudios.ViewModels;
 
 namespace Vidly.Controllers
 {
+ 
     public class GamesController : Controller
     {
         private ApplicationDbContext _context;
@@ -33,17 +34,31 @@ namespace Vidly.Controllers
             return View("GameForm", viewModel);
         }
 
+     
+
         [HttpPost]
-        public ActionResult Save(Game Game)
+        public ActionResult Save(Game game)
         {
-            if (Game.Id == 0)
-                _context.Games.Add(Game);
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new GameFormViewModel()
+                {
+                    Game = game,
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("GameForm", viewModel);
+            }
+
+            if (game.Id == 0)
+                _context.Games.Add(game);
             else
             {
-                var GameInDb = _context.Games.Single(c => c.Id == Game.Id);
-                GameInDb.Name = Game.Name;
-                GameInDb.GenreId = Game.GenreId;
-
+                var customerInDb = _context.Games.Single(c => c.Id == game.Id);
+                customerInDb.Name = game.Name;
+                customerInDb.Description = game.Description;
+                customerInDb.GenreId = game.GenreId;
+                customerInDb.DownloadLink = game.DownloadLink;
             }
 
             _context.SaveChanges();
@@ -82,6 +97,18 @@ namespace Vidly.Controllers
             };
 
             return View("GameForm", viewModel);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Game game = _context.Games.Find(id);
+            if (game == null)
+            {
+                return HttpNotFound();
+            }
+            _context.Games.Remove(game);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Games");
         }
     }
 }
