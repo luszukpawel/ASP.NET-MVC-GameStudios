@@ -11,6 +11,8 @@
     <tr>
         <th>Game</th>           
         <th>Genre</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -19,6 +21,8 @@
         <tr>
             <td>@Html.ActionLink(game.Name, "Details", "Games", new { id = game.Id }, null)</td>               
             <td>@game.Genre.Name</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Games", new { id = game.Id }, null)</td>      
+            <td>@Html.ActionLink("Delete", "Delete", "Games", new { id = game.Id }, null)</td>
         </tr>
     }
     </tbody>

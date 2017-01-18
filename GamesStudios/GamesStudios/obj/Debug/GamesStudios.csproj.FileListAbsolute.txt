@@ -85,3 +85,4 @@ C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudi
 C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.Migrations.addGameTable.resources
 C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.Migrations.AddGenre.resources
 C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.Migrations.AddGameGenreConn.resources
+C:\Users\pluszak\Desktop\Informatyka\Projects\ASP.NET-MVC-GameStudios\GamesStudios\GamesStudios\obj\Debug\GamesStudios.Migrations.SeedBasicUsers.resources

@@ -22,6 +22,7 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -37,6 +38,7 @@ namespace Vidly.Controllers
      
 
         [HttpPost]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Save(Game game)
         {
             if (!ModelState.IsValid)
@@ -70,7 +72,11 @@ namespace Vidly.Controllers
         {
             var Games = _context.Games.Include(c => c.Genre).ToList();
 
-            return View(Games);
+            if (User.IsInRole(RoleName.Admin))
+                return View("AdminIndex", Games);
+
+
+            return View("Index", Games);
         }
 
         public ActionResult Details(int id)
@@ -83,6 +89,7 @@ namespace Vidly.Controllers
             return View(Game);
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Edit(int id)
         {
             var Game = _context.Games.SingleOrDefault(c => c.Id == id);
@@ -98,7 +105,7 @@ namespace Vidly.Controllers
 
             return View("GameForm", viewModel);
         }
-
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Delete(int id)
         {
             Game game = _context.Games.Find(id);

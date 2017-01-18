@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201701151657203_AddGameGenreConn.Designer.cs">
       <DependentUpon>201701151657203_AddGameGenreConn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701181517538_SeedBasicUsers.cs" />
+    <Compile Include="Migrations\201701181517538_SeedBasicUsers.Designer.cs">
+      <DependentUpon>201701181517538_SeedBasicUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomValidators\IShttpORhttps.cs" />
@@ -298,6 +302,7 @@
     <Content Include="Views\Games\Details.cshtml" />
     <Content Include="Views\Games\GameForm.cshtml" />
     <Content Include="Views\Genres\GenreForm.cshtml" />
+    <Content Include="Views\Games\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -322,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701151657203_AddGameGenreConn.resx">
       <DependentUpon>201701151657203_AddGameGenreConn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701181517538_SeedBasicUsers.resx">
+      <DependentUpon>201701181517538_SeedBasicUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
