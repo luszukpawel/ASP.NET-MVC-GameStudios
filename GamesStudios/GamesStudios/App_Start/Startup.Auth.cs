@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using GamesStudios.Models;
+using GamesStudios.Models.FragileData;
 
 namespace GamesStudios
 {
@@ -54,9 +55,10 @@ namespace GamesStudios
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            // note this data is added to .gitignore in case of trolls (⌐■_■)
+            app.UseFacebookAuthentication(
+               appId: SocialAuthData.FacebookappId,
+               appSecret: SocialAuthData.FacebookappSecret);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

@@ -7,6 +7,6 @@ namespace GamesStudios.Models
 {
     public static class RoleName
     {
-        public const string ADMIN = "Admin";
+        public const string Admin = "Admin";
     }
 }
