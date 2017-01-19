@@ -5,7 +5,7 @@ using GamesStudios.Models;
 using GamesStudios.ViewModels;
 
 
-namespace Vidly.Controllers
+namespace GamesStudios.Controllers
 {
     public class GenresController : Controller
     {

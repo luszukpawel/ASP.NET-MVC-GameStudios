@@ -3,10 +3,8 @@ using System.Linq;
 using System.Web.Mvc;
 using GamesStudios.Models;
 using GamesStudios.ViewModels;
+using GamesStudios.Controllers;
 
-
-namespace Vidly.Controllers
-{
  
     public class GamesController : Controller
     {
@@ -118,4 +116,3 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Games");
         }
     }
-}

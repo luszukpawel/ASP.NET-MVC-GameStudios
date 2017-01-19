@@ -4,5 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name details</h2>
+<div class="jumbotron">
+    <h1>@Model.Name</h1>
+    <p class="lead">@Model.Description</p>
+    <p><a href="@Model.DownloadLink" class="btn btn-primary btn-lg">Download &raquo;</a></p>
+</div>
 
