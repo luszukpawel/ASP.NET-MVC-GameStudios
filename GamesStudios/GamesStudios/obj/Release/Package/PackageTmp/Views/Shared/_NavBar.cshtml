@@ -1,0 +1,39 @@
+﻿@using GamesStudios.Models
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @if (User.IsInRole(RoleName.Admin))
+            {
+                @Html.ActionLink("Admin Mode (⌐■_■)", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            }
+            else
+            {
+                @Html.ActionLink("Manorus Games Studios", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            }
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About us", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact us", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Support us", "Index", "Home")</li>
+                <li>@Html.ActionLink("Our Games", "Index", "Games")</li>
+
+                @if (User.IsInRole(RoleName.Admin))
+                {
+                    <li>@Html.ActionLink("Add Game", "New", "Games")</li>
+                    <li>@Html.ActionLink("Add Genre", "New", "Genres")</li>
+                }
+
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>

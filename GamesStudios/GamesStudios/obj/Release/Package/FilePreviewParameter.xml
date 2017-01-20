@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="manorusgamesstudios" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\pluszak\\Desktop\\Informatyka\\Projects\\ASP\.NET-MVC-GameStudios\\GamesStudios\\GamesStudios\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\pluszak\\Desktop\\Informatyka\\Projects\\ASP\.NET-MVC-GameStudios\\GamesStudios\\GamesStudios\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=tcp:manorusgamesstudiosdbserver.database.windows.net,1433;Initial Catalog=manorusgamesstudios_db;User Id=pluszuk@manorusgamesstudiosdbserver;Password=Fortunamayor12345" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\pluszak\\Desktop\\Informatyka\\Projects\\ASP\.NET-MVC-GameStudios\\GamesStudios\\GamesStudios\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

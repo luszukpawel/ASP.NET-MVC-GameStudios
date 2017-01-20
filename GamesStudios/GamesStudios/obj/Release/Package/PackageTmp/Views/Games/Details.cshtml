@@ -1,0 +1,17 @@
+﻿@model GamesStudios.Models.Game 
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using GamesStudios.Helpers
+<div class="jumbotron">
+    <h1>@Model.Name</h1>
+    <p class="lead">@Model.Description</p>
+  
+    
+    @Html.Raw(LinkHelper.CreateLinkButtton(@Model.DownloadLink, "Download "+@Model.Name))
+   
+
+
+</div>
+
